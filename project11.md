@@ -262,6 +262,7 @@ Update your ansible playbook with some new Ansible tasks and go through the full
 
 Update your **playbooks/common.yml** file with following code:
 
+```
 ---
 - name: update web, nfs and db servers
   hosts: webservers, nfs, db
@@ -309,7 +310,8 @@ Update your **playbooks/common.yml** file with following code:
         path: /home/ubuntu/test/devops.txt
         state: touch
         mode: u=rw,g=r,o=r
-
+```
+  
 ![running the above playbook](./images/adding-directory-and-file1.PNG)
 
 ![running the above playbook](./images/adding-directory-and-file2.PNG)
