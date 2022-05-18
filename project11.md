@@ -62,13 +62,16 @@ After you have successfully installed VSC, configure it to connect to your newly
 
 Clone down your **ansible-config-mgt** repo to your Jenkins-Ansible instance
 
+```
 'git clone <ansible-config-mgt repo link>'
+```
+Make sure that git is installed in your jenkins-ansible server
 
 ## BEGIN ANSIBLE DEVELOPMENT
 
-1. In your **ansible-config-mgt** GitHub repository, create a new branch that will be used for development of a new feature.
+1. From your jenkins-ansible server, in your **ansible-config-mgt** folder, create a new branch that will be used for development of a new feature.
 
-2. Checkout the newly created feature branch to your local machine and start building your code and directory structure
+2. Checkout to the newly created feature branch to your jenkins-ansible machine and start building your code and directory structure
 
 3. Create a directory and name it **playbooks** – it will be used to store all your playbook files.
 
