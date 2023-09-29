@@ -21,14 +21,14 @@ When we reach Project 15, we will see a Bastion host in proper action. But for n
 
 ## INSTALL AND CONFIGURE ANSIBLE ON EC2 INSTANCE
 
-1. Update Name tag on your Jenkins EC2 Instance to **Jenkins-Ansible**. We will use this server to run playbooks.
+1. Update Name tag on your Jenkins EC2 Instance to **Jenkins-Ansible**. We will use this server to run playbooks.(ubuntu 20.04 t2 medium)
 2. In your GitHub account create a new repository and name it **ansible-config-mgt**.
 3. Instal Ansible
 
 ```
 sudo apt update
 
-sudo apt install ansible
+sudo apt install ansible -y
 ```
 Check your Ansible version by running **ansible --version**
 
@@ -63,13 +63,13 @@ Tip: Every time you stop/start your Jenkins-Ansible server – you have to recon
 
 After you have successfully installed VSC, configure it to connect to your newly created GitHub repository.
 
-Clone down your **ansible-config-mgt** repo to your Jenkins-Ansible instance
+Clone down your **ansible-config-mgt** repo
 
 'git clone <ansible-config-mgt repo link>'
 
 ## BEGIN ANSIBLE DEVELOPMENT
 
-1. In your **ansible-config-mgt** GitHub repository, create a new branch that will be used for development of a new feature.
+1. In your **ansible-config-mgt** repository, create a new branch that will be used for development of a new feature.
 
 2. Checkout the newly created feature branch to your local machine and start building your code and directory structure
 
@@ -105,7 +105,7 @@ Now, ssh into your Jenkins-Ansible server using ssh-agent
 
 'ssh -A ubuntu@public-ip'
 
-Also notice, that your Load Balancer user is ubuntu and user for RHEL-based servers is ec2-user.
+Also notice, that your Load Balancer server is ubuntu and user for RHEL-based servers is ec2-user.
 
 Update your **inventory/dev.yml** file with this snippet of code:
 
@@ -210,7 +210,7 @@ Once your code changes appear in master branch – Jenkins will do its job and s
 
 Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
 
-First run the below command to check for the connectivity of all the servers
+First run the below command to check for the connectivity of all the servers and ensure that nothing will hinder the playbook.
 
 ```
 ansible all -m ping -i inventory/dev.yml

@@ -1,0 +1,14 @@
+---
+- name: update lb servers
+  hosts: lb
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+    - name: pinging
+      ping:
+
+    - name: updating apt packages
+      become: true
+      apt:
+        update_cache: yes
